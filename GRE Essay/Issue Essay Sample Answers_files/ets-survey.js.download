@@ -1,0 +1,109 @@
+//
+//
+//
+//
+//-- -- -- -- --
+// surveygizmo links + any querystring values
+//
+
+var surveyHref = 'https://www.surveygizmo.com/s3/4573491/ETS-org-Main';
+var surveyQuerystring = '';    // example... '?a=1\&b=2';
+var surveyWindowWidth = 600;
+var surveyWindowHeight = 800;
+
+var path = (window.location.pathname).split('/');
+var brand = ( /^es|fr|jp|ko|pt|tr|zh$/.test(path[1]) ) ? path[2] : path[1];
+
+switch( brand ){
+
+    case 'gre':
+        surveyHref = 'https://www.surveygizmo.com/s3/4503917/ETS-org-GRE';
+        break;
+
+    case 'praxis':
+        surveyHref = 'https://www.surveygizmo.com/s3/4748681/ETS-org-PRAXIS';
+        break;
+
+    case 'toeic':
+        surveyHref = 'https://www.surveygizmo.com/s3/4564500/ETS-org-TOEIC';
+        break;
+
+    case 'toefl':
+        surveyHref = 'https://www.surveygizmo.com/s3/4563782/ETS-org-TOEFL';
+        break;
+
+    default:
+        surveyHref = 'https://www.surveygizmo.com/s3/4573491/ETS-org-Main';
+
+};
+
+
+//-- -- -- -- --
+// feeback tab variables
+//
+
+var body = document.getElementsByTagName('body')[0];
+
+var surveySvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+var surveyText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+var surveyWrapper = document.createElement('div');
+var surveyDiv = document.createElement('div');
+var surveyAnchor = document.createElement('a');
+
+var surveyWindowOptions = 'menubar=no,location=no,resizable=yes,scrollbars=yes,status=yes,width='+ surveyWindowWidth +',height='+ surveyWindowHeight;
+var surveyWindow; // will be reference to the window;
+
+//-- -- -- -- --
+// build the feedback tab and attach it to the document
+//
+surveySvg.setAttribute('class', 'sg');
+surveySvg.setAttribute('xlink','http://www.w3.org/1999/xlink');
+surveySvg.setAttribute('width','60');
+surveySvg.setAttribute('height','110');
+
+surveyText.setAttribute('x', '20');
+surveyText.setAttribute('y', '20');
+surveyText.setAttribute('transform','rotate(180, 20, 55)');
+surveyText.textContent = 'Feedback';
+
+surveySvg.appendChild(surveyText);
+surveySvg.setAttribute('aria-hidden','true');
+
+surveyAnchor.setAttribute('href', surveyHref+surveyQuerystring);
+surveyAnchor.innerHTML = '<span class="at-text">Provide Feedback about this page</span>';
+
+surveyWrapper.setAttribute('id', 'ets-surveygizmo');
+surveyWrapper.setAttribute('class', 'wrap-survey-gizmo');
+
+surveyAnchor.appendChild(surveySvg);
+surveyDiv.appendChild(surveyAnchor);
+surveyWrapper.appendChild(surveyDiv);
+body.appendChild(surveyWrapper);
+
+body.classList.add('ets-survey');
+
+//-- -- -- -- --
+// the feedback tab click functionality
+//
+
+surveyAnchor.addEventListener ('click', function(e){
+    e.preventDefault();
+
+    // Fixes dual-screen position                         Most browsers      Firefox
+    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : window.screenX;
+    var dualScreenTop = window.screenTop != undefined ? window.screenTop : window.screenY;
+
+    var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+    var left = ((width / 2) - (surveyWindowWidth / 2)) + dualScreenLeft;
+    var top = ((height / 2) - (surveyWindowHeight / 2)) + dualScreenTop;
+
+    surveyWindow = window.open(surveyAnchor.getAttribute('href'), 'ets-survey-gizmo', 'top='+ top +',left='+ left +','+ surveyWindowOptions);
+    surveyWindow.focus();
+}, false);
+
+
+//-- -- -- -- --
+// fin
+//

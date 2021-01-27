@@ -1,0 +1,14 @@
+Ayush Koul
+Roll No. 24
+Sec A
+
+	*****INPUT*****
+Enter n (Number of Equations): 2
+Enter elements:
+2 3 20
+7 2  53
+
+	*****OUTPUT*****
+Solutions: 
+X0 =  7.00
+X1 =  2.00
