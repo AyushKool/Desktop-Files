@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #141414;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+canvas {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+canvas:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+#rainbow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  cursor: pointer;
+}

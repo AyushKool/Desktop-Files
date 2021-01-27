@@ -1,0 +1,107 @@
+<!DOCTYPE>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+	   <title>Form</title>
+	   <style>
+          table {
+               width: 75%;
+          }
+
+          td,
+          th {
+			/* width: 100%; */
+			height: 100%;
+          }
+     </style>
+    </head>
+
+    <body>
+            <h3>Please Enter Your Details</h3>
+            <h5>Fill the application form below and submit.</h5>
+            <table>
+                <tbody>
+                    <tr>
+                        <td ><label>Name*</label></td>
+                        <td  colspan="2">
+                            <input type="text" placeholder="First Name" required>
+                            <input type="text" placeholder="Last Name" required>
+                        </td>
+                    </tr>
+
+                    <tr >
+                        <td ><label>E-mail Address*</label></td>
+                        <td colspan="2"><input type="text" placeholder="someone@gmail.com" required></td>
+                    </tr>
+
+                    <tr>
+                        <td ><label>Phone Number*</label></td>
+                        <td colspan="2"><input type="text" placeholder="Phone Number" required></td>
+                    </tr>
+
+                    <tr>
+                        <td ><label>Gender*</label></td>
+                        <td colspan="2">
+                            <select required>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td ><label>Citizen*</label></td>
+                        <td colspan="2">
+                            <select required>
+                                <option>Bangladesh</option>
+                                <option>Bhutan</option>
+                                <option>India</option>
+                                <option>SriLanka</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td ><label>Date of Birth*</label></td>
+                        <td colspan="2"><input type="date" required></td>
+                    </tr>
+
+                    <tr>
+                        <td ><label>Address*</label></td>
+                        <td colspan="2">
+					<input type="text" placeholder="Street Address">
+					<input type="text" placeholder="Street Line 2">
+					<br>
+					<input type="text" placeholder="Landmark">
+					<input type="text" placeholder="City">
+					<br>
+					<input type="text" placeholder="State/Province">
+					<input type="text" placeholder="Postal/Zip Code">
+					
+                            <!-- <table>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding: 0;"></td>
+                                        <td style="padding: 10px;"><input type="text" placeholder="Street Line 2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0;"></td>
+                                        <td style="padding: 10px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0;"></td>
+                                        <td style="padding: 10px;"></td>
+                                    </tr>
+                                </tbody>
+                            </table> -->
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><input id="submit_button" type="submit" value="SUBMIT"></td>
+                    </tr>
+                </tbody>
+            </table>
+    </body>
+</html>

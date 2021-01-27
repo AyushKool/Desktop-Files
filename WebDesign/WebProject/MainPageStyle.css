@@ -1,0 +1,50 @@
+﻿body {
+    text-align: center;
+    color: #ff0000;
+    animation-name: bg;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    /*background-image: url(/Users/ayush/Desktop/Wallpapers/Beach.jpg);
+    background-repeat: no-repeat;
+    background-attachment:scroll;
+    background-position:right top;
+    background-size: 50%;
+    background-position:center top;*/
+    font: 300 24px verdana bold;
+    /*background-color: rgba(0, 21, 255, 0.35);*/
+    padding: 10px;
+}
+
+p {
+    margin: 100px 100px 150px 80px;
+    font-family: Roboto, Verdana;
+    font-size:60px;
+    color: #b60000;
+    /*border: 2px solid #808080;
+    border-radius: 20px;*/
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/Users/ayush/Desktop/RobotoFont/Roboto-Thin.ttf) format('truetype');
+}
+
+canvas{
+    border-radius: 50%;
+}
+
+@keyframes bg {
+    0% {
+        background-color: khaki;
+    }
+
+    100% {
+        background-color: lightgrey;
+    }
+    /*from {
+        
+    }
+    to {
+        
+    }*/
+}
